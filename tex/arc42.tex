@@ -1,0 +1,83 @@
+% #############################################################################
+% arc42 template for LaTeX (based on template version 6.1)
+% https://github.com/oliverlietz/arc42
+%
+% http://arc42.org
+% https://bitbucket.org/gernotstarke/arc42-template
+% 
+% licensed under http://creativecommons.org/licenses/by/3.0/
+% #############################################################################
+\documentclass[a4paper, 12pt, oneside, titlepage, final, DIV=calc]{scrreprt}
+
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage{lmodern}
+\usepackage{inconsolata} % nicer monospaced font
+
+\typearea[12mm]{calc}
+
+\usepackage{color}
+\definecolor{light}{cmyk}{0,0,0,0.5}
+
+\usepackage[backend=biber]{biblatex}
+\bibliography{arc42}
+
+\usepackage{listings}
+% \usepackage{listingsutf8}
+\lstset{basicstyle=\ttfamily}
+
+\usepackage{index}
+\makeindex
+
+\usepackage[]{hyperref}
+\hypersetup{
+  pdfauthor = {},
+  pdftitle = {arc42},
+  pdfsubject = {Architecture Documentation},
+  pdfborder = {0 0 0}
+}
+\usepackage[all]{hypcap} % link to headers (table, figure, etc.)
+
+\usepackage[acronym, toc, nonumberlist]{glossaries}
+\renewcommand{\glspostdescription}{} % no dot at end of entry
+\makeglossaries
+
+\include{glossary}
+
+\begin{document}
+
+\include{cover}
+
+\tableofcontents
+\listoffigures
+\lstlistoflistings
+\listoftables
+
+\include{01}
+\include{02}
+\include{03}
+\include{04}
+\include{05}
+\include{06}
+\include{07}
+\include{08}
+\include{09}
+\include{10}
+\include{11}
+
+\clearpage
+
+\glsaddall
+\printglossary[style=altlist]
+
+\clearpage
+
+\printglossary[type=\acronymtype, style=long]
+
+\printbibliography
+
+\printindex
+
+\clearpage
+
+\end{document}
